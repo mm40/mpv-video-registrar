@@ -238,7 +238,7 @@ vidInfo* openURL(char* url, int tempFileID) {
   }
 
   pclose(fp);
-  verprintf("Done with youtube-dl\n");
+  verprintf("Done with yt-dlp\n");
 
   //char* JSON = malloc(sizeof(char)*strlen(resJ) + 1);
   //strcpy(JSON, resJ);

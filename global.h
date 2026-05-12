@@ -19,8 +19,8 @@
 
 /* TODO: BUG : what if the video is the 3rd on the playlist, and not the first? This command will still return the first.
 /* TODO:  add --sub-lang en  --write-auto-sub */
-//#define COMM_YT "youtube-dl  --skip-download --write-info-json " //command to be called, with vide URL at the end of it.
-#define COMM_YT "youtube-dl -i  --dump-single-json  --skip-download "
+//#define COMM_YT "yt-dlp  --skip-download --write-info-json " //command to be called, with vide URL at the end of it.
+#define COMM_YT "yt-dlp -i  --dump-single-json  --skip-download "
 
 #define COMM_YT_NO_PLAYLIST_ADDITION " --no-playlist "
 
@@ -30,7 +30,7 @@
 
 #define COMM_JQ "jq -r -c "
 
-// youtube-dl adds this to the file name supplied with -o, at the end
+// yt-dlp adds this to the file name supplied with -o, at the end
 #define PATH_YT_JSON_ADDITION ".info.json" 
 
 #define PATH_SQL_DATA "./video-registry.db"
@@ -50,7 +50,7 @@
    if LISTCHAN_STRIP is used, than ~1700 videos is around ~1.2MB. TODO : Anyway, Wherever this constant is used, there should be dynamic reallocation of size */
 // This JSON addition has to be used when entire playlist or channel is being loaded. JSON for playlist can be
 // As big as 500kb (for playlist of ~50 items), and this big JSON can not be (for some reason) piped in the queriedData function from "echo" comand to "jq" command.
-// popen function in openURL can handle piping of such large data, so very large JSON is piped right when received from youtube-dl with COMM_JSON_LISTCHAN_STRIP to
+// popen function in openURL can handle piping of such large data, so very large JSON is piped right when received from yt-dlp with COMM_JSON_LISTCHAN_STRIP to
 // remove all unnecessary fields, and only leave the fields that are needed for each video. Sample of this JSON is on bottom of the file
 //#define COMM_JSON_LISTCHAN_STRIP " | jq  '.|{extractor: .extractor, _type: ._type, title: .title, extractor_key: .extractor_key, webpage_url: .webpage_url, entries: [.entries[]| {n_entries: .n_entries, title: .title, fulltitle: .fulltitle, upload_date: .upload_date, id: .id, uploader_url: .uploader_url, display_id: .display_id, description: .description, uploader: .uploader, uploader_id: .uploader_id, subtitles: .subtitles, automatic_captions: .automatic_captions, thumbnail: .thumbnail, webpage_url: .webpage_url}]}'"
 #define COMM_JSON_LISTCHAN_STRIP "| jq  -c '.entries[]| {title: .title, fulltitle: .fulltitle, upload_date: .upload_date, id: .id, uploader_url: .uploader_url, display_id: .display_id, description: .description, uploader: .uploader, uploader_id: .uploader_id, subtitles: .subtitles, automatic_captions: .automatic_captions, thumbnail: .thumbnail, webpage_url: .webpage_url, separator: \"__++__++__\"}'"

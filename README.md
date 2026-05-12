@@ -1,6 +1,7 @@
 # MPV Video Registrar
 
 Uses `sqllite3` to store data.
+Uses `yt-dlp` to fetch video metadata.
 Uses [cJSON by davegamble](https://github.com/davegamble/cjson)
 
 # Build
