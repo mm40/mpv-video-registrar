@@ -7,12 +7,12 @@
 #include <string.h>
 #include "cJSON.h"
 
-sqlite3 *sqconn; // connection to local database
-int isverbose; // whether the program outputs various information or not
-char* themeID; // the id of the theme of the video
-char* themePath; // the path of the selected theme of the video
-int ifIdExists; 
-char* url;
+extern sqlite3 *sqconn; // connection to local database
+extern int isverbose; // whether the program outputs various information or not
+extern char* themeID; // the id of the theme of the video
+extern char* themePath; // the path of the selected theme of the video
+extern int ifIdExists; 
+extern char* url;
 
 typedef struct VIDINFO {
   // order of these fields should be exactly as order in table Videos
