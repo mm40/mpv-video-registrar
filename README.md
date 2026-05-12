@@ -14,3 +14,7 @@ Uses [cJSON by davegamble](https://github.com/davegamble/cjson)
 # Build
 - Install `sqlite3`: sudo apt install libsqlite3-dev, and use `-lsqlite3` flag in `gcc` command.
 
+# TODO
+- [ ] create a `Makefile`
+- [ ] show test examples
+- [ ] create a manpage for the program
