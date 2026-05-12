@@ -2,3 +2,7 @@
 #include <unistd.h> // for access() function
 
 #include "cJSON.h"
+
+int main() {
+
+}
