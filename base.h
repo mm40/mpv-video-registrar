@@ -14,4 +14,36 @@ char* themePath; // the path of the selected theme of the video
 int ifIdExists; 
 char* url;
 
+typedef struct VIDINFO {
+  // order of these fields should be exactly as order in table Videos
+  // data actualy saved in tables
+  char* title;
+  char* fulltitle; //
+  char* upload_date;
+  char* ytid;
+  char* uploader_url;
+  char* display_id;
+  char* description;
+  char* uploader;
+  char* uploader_id;
+  char* subtitles;
+  char* automatic_captions;
+  char* thumbnail;
+  char* webpage_url;
+
+  struct VIDINFO* next; // pointer to the next video
+} vidInfo;
+
+ // inserts comment for video vidID, with the text of comment, at the time time
+void insertComment(int vidID,char* comment,double time);
+
+// opens the connection to sqconn declared above
+void setUpConn();
+
+// From given tableName, fills themeID and themePath, if the row(s) with
+// themeName exists in table. Returns number of such rows, should be only 1
+// if 0 = none found; if > 1, more than one found, which should never happen.
+int getThemeIdPathFromTitle(char* themeName, char** themeID, char** themePath);
+
+
 #endif
