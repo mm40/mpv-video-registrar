@@ -65,5 +65,33 @@ int idFromReceivedLink(char* url);
 // it populates vidInfo fields, creating linked list if there are more videos
 vidInfo* openURL(char* URL, int tempFileID);
 
+// just needs to be declared
+FILE* popen(char*, char*);
+
+// just needs to be declared
+void pclose(FILE*);
+
+// just needs to be declared
+int waitpid(int, int*, int);
+
+// only prints comments for the video, used woth -g flag
+void printComments(int vidID);
+
+// deletes video from list, along with its comments. Returns 0 for success,
+// error code otherwise.
+int deleteVideo(int vidID);
+
+// runs SQL update command with variable parameters : first parameter is the
+// command itself, second - number of the following parameters, and after
+// that pairs of type-value, for instance :
+// ("command",6, int, 5, string, "test", float, 1.5).
+// Types are SQLITE_(INTEGER/FLOAT/TEXT).
+// Arguments in command are from 1 onward : ?1, ?2, ... etc.
+// Returns 0 if succeded, error code if failed
+int sqlUpdateCommand(const char* command, int argn, ...);
+
+// deletes comment for vid id, at the specified time.
+// Returns 0 for success, error for otherwise
+int deleteCommentAt(int vidID, double time); 
 
 #endif
