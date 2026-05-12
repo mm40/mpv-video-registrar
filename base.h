@@ -45,5 +45,25 @@ void setUpConn();
 // if 0 = none found; if > 1, more than one found, which should never happen.
 int getThemeIdPathFromTitle(char* themeName, char** themeID, char** themePath);
 
+char* queriedData(char* , cJSON*);
+
+void populate(vidInfo* , char*);
+
+int insertVideoIntoDatabase(vidInfo* ,char*);
+
+// prints fields of vid structure
+void printVideoProperties(vidInfo* vid);
+
+// if video at url exists in database, returns its database id.
+// It performs inverse CONTAINS function : checks whether any of listed ID's
+// in database are contained in passed link, which can be either ordinary
+// youtube link, or tv link, or mobile link, or playlist link ...
+int idFromReceivedLink(char* url);
+
+// opens the URL, writes the JSON to temp file ID (because JSON can be really
+// big, even in megabytes sometimes for large playlists), than from that file
+// it populates vidInfo fields, creating linked list if there are more videos
+vidInfo* openURL(char* URL, int tempFileID);
+
 
 #endif
