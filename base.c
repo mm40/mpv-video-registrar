@@ -4,7 +4,7 @@
 #include "global.h"
 #include <stdarg.h>
 
-int isverbose = 0;
+int isverbose = 1;
 sqlite3 *sqconn = NULL;
 char* url = NULL;
 int ifIdExists = 0;
