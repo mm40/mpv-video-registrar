@@ -7,5 +7,11 @@
 #include <string.h>
 #include "cJSON.h"
 
+sqlite3 *sqconn; // connection to local database
+int isverbose; // whether the program outputs various information or not
+char* themeID; // the id of the theme of the video
+char* themePath; // the path of the selected theme of the video
+int ifIdExists; 
+char* url;
 
 #endif
